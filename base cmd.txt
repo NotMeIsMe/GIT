@@ -1,0 +1,79 @@
+
+1.
+// 创建本地仓库或者克隆
+git init
+git clone [git://github.com/xxx/xxx.git]
+
+2.
+// 目录文件添加或修改文件后添加跟踪
+git status		//查看状态
+git add [xx]	//添加修改(追加的文件(该文件add后直接暂存)或修改的内容(还要二次add才暂存))
+				  到本地暂存,只有暂存的数据才能经过commit成为提交到本地仓库
+
+//添加到暂存前可以看看差异
+git diff
+//或者对比上期的差异
+git diff --staged
+
+3.
+// 忽略文件
+cat .gitignore *.[oa] *~
+
+4.
+// 移除文件
+rm xxx
+// 记录到暂存中
+git rm xxx
+
+5.
+// 移除暂存的数据记录(只能暂存的数据以记录会commit)
+git rm --cached readme.txt
+
+6.
+// 查看远程仓库信息
+git remote show origin
+
+7.
+// 移动
+git mv file_from file_to
+
+
+8.
+// 参看日志
+git log
+
+9.
+// 抓取数据合并到本地
+// (更新项目或者保持push前是前一个版本,
+// 例如:你在push前项目被其他人更新过就无法push了,
+// 就是追加到当前分支)
+git pull
+
+10.
+// 远程仓库的删除和重命名
+git remote rename [curr] [desc]
+git remote rm [xx]
+
+11.
+// 打标签(版本)
+git tag -a v1.4 -m 'Project version 1.4'
+git tag //(列出标签)
+
+12.
+// 提交所有的修改到本地仓库,只有暂存的
+git commit -m "Story 182: Fix benchmarks for speed"
+
+13.
+// 提交本地已经提交的版本到远程仓库中
+//,而且远程仓库必须是该本版的前一个版本
+// git push [remote-name] [branch-name]
+git push origin master //origin是远程仓库,使用git init时为空,
+						 使用git clone [git://github.com/xxx/xxx.git]时就是[git://github.com/xxx/xxx.git]
+						 可以添加远程仓库(要有密码才能提交) 
+						 git remote add origin https://github.com/2637309949/GIT.git
+
+14.保存用户
+git config --global credential.helper store
+
+15.回滚
+git reset --hard commit_id 
